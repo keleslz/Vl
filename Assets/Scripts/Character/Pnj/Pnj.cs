@@ -3,56 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Pnj : MonoBehaviour
+public class Pnj : Character
 {
-    private Transform[] points;
-
-    private int targetIndex = 0; 
-
-    private float speed = 2f;
-
-    private static int maxPointsCount = 10;
-
-    public string name = "Andy";
+    private static int instantiationCount = 2; // Player has first id
 
     void Start()
     {
-        DefinePoints();
-    }
+        id = instantiationCount;
+        instantiationCount+=1;
 
-    void Update()
-    {
-        Vector3 dir = points[targetIndex].position - transform.position;
-
-        if(Vector3.Distance(transform.position, points[targetIndex].position) <= 0.2f)
+        if(instantiationCount % 6 == 0)
         {
-            DefinePoints();
-            GetNextPoint();
+            ethnicGroup = Character.Types.Vampyr;
+        }else {
+            ethnicGroup = Character.Types.Human;
         }
 
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-    }
-
-    private void DefinePoints()
-    {
-        points = new Transform[maxPointsCount];
-
-        var rand = new System.Random();
-
-        for (int i = 0; i < maxPointsCount; i++)
-        {
-            int randomIndex = rand.Next(0, MovePoints.points.Length);
-            points[i] = MovePoints.points[randomIndex];  
-        }
-    }
-
-    private void GetNextPoint()
-    {
-        if(targetIndex == (maxPointsCount - 1))
-        {
-            targetIndex = 0;
-            return;
-        }
-        targetIndex++;
+        username = "Pnj n° " + id;
     }
 }

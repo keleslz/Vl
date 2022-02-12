@@ -3,52 +3,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class AthHealth : MonoBehaviour
+public class AthHealth : Ath
 {
-    [SerializeField]
-    private float startHealth = 100f;
-
-    [SerializeField]
-    private float health;
-
-    [SerializeField]
-    private float lose = 0.001f;
-
-    [SerializeField]
-    private float loseSpeed = 10f;
-
-    private Text text;
-
     void Start()
     {
-        health = startHealth;
+        player = GameObject.Find("User").GetComponent<Player>();
         text = GameObject.FindWithTag("Health_TEXT").GetComponent<Text>();
     }
 
     void Update()
     {
-        if(health <= 0)
+        float health = player.GetHealth();
+
+        if(health <= end)
         {
-            health = startHealth;
             return;
         }
 
-        if((health <= startHealth) && (health > (startHealth / 2f)) )
-        {
-            text.color = Color.black;
-        }
-
-        if(health <= (startHealth / 2f) )
-        {
-            text.color = Color.yellow;
-        }
-        
-        if(health <= (startHealth / 3f) )
-        {
-            text.color = Color.red;
-        }
+        UpdateTextColor(health, text);
 
         health -= ((Time.deltaTime * loseSpeed) * lose) ;
+
+        player.SetHealth(health);
+
         text.text = $"Santé {Math.Round((health), 0).ToString()}/100";
 
     }

@@ -958,6 +958,7 @@ GameObject:
   - component: {fileID: 176253893}
   - component: {fileID: 176253894}
   - component: {fileID: 176253895}
+  - component: {fileID: 176253896}
   m_Layer: 0
   m_Name: User
   m_TagString: Player
@@ -977,6 +978,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fa94934568d71f4692e3d0caf8ea933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
+  ethnicGroup: 0
+  username: 
+  lastname: 
+  age: 
+  healthPoint: 100
+  strengthPoint: 100
+  thirstyPoint: 0
 --- !u!136 &176253889
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1095,6 +1104,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c3cab316f807c429d1b5d616c3265c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &176253896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176253887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb4b15d5cd704748bfe2adc0c28f646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 0}
 --- !u!1001 &177759795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1896,7 +1918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &380388760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2636,7 +2658,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7514307714757970088, guid: 8a33e2602e5167140a9542ffa5c881aa, type: 3}
       propertyPath: m_Text
-      value: Choisir (touche X)
+      value: Choisir (touche W)
       objectReference: {fileID: 0}
     - target: {fileID: 7514307714757970089, guid: 8a33e2602e5167140a9542ffa5c881aa, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2886,7 +2908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &820633774
 Transform:
   m_ObjectHideFlags: 0
@@ -4292,10 +4314,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0022c531f28903140b20df39d282edd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startThirsty: 100
-  thirsty: 0
-  gain: 0.001
-  speedGain: 10
+  start: 100
+  end: 0
+  lose: 0.1
+  loseSpeed: 10
 --- !u!1001 &1228976586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4486,7 +4508,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7514307714757970088, guid: 8a33e2602e5167140a9542ffa5c881aa, type: 3}
       propertyPath: m_Text
-      value: Besoins de boire 0%
+      value: Besoins de boire 100%
       objectReference: {fileID: 0}
     - target: {fileID: 7514307714757970089, guid: 8a33e2602e5167140a9542ffa5c881aa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5074,9 +5096,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb7ac3a3b158844bb8097b47520c794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startStrength: 100
-  strength: 0
-  lose: 0.001
+  start: 100
+  end: 0
+  lose: 0.1
   loseSpeed: 10
 --- !u!1001 &1516077670
 PrefabInstance:
@@ -6748,6 +6770,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1928861414}
     m_Modifications:
+    - target: {fileID: 5206903813803587636, guid: 8a33e2602e5167140a9542ffa5c881aa, type: 3}
+      propertyPath: lose
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7514307714757970094, guid: 8a33e2602e5167140a9542ffa5c881aa, type: 3}
       propertyPath: m_TagString
       value: Health_TEXT

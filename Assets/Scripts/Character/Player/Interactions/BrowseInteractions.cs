@@ -83,27 +83,26 @@ public class BrowseInteractions : MonoBehaviour
 
     void IsCancel()
     {
-        if(Input.GetKeyDown(KeyCode.X) && indexSelection == choices.Length-1 && !actionInProgess)  // Cancel
+        if(Input.GetKeyDown(KeyCode.W) && indexSelection == choices.Length-1 && !actionInProgess)
         {
             HandleActionInProgress();
             Interactions.UpdateIsActive(false);
             choices[indexSelection].color = Color.black;
             indexSelection -= indexSelection;
             choices[startIndex].color = Color.blue;
-            Debug.Log("J'annule");
         }
     }
 
     void IsDrink()
     {
-        if(Input.GetKeyDown(KeyCode.X) && indexSelection == 0 && !actionInProgess) // Cancel
+        if(Input.GetKeyDown(KeyCode.W) && indexSelection == 0 && !actionInProgess)
         {
             HandleActionInProgress();
             Interactions.UpdateIsActive(false);
             choices[indexSelection].color = Color.black;
             indexSelection -= indexSelection;
             choices[startIndex].color = Color.blue;
-            Debug.Log("je bois");
+            Player.actions.Drink();
         }
     }
 
